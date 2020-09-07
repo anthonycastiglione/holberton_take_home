@@ -5,6 +5,7 @@ This project was created with Ruby 2.7.1. You can use anything you like to insta
 # Getting started
 ## Install docker and docker-compose
 https://docs.docker.com/engine/install/#server
+
 https://docs.docker.com/compose/install/
 
 ## Get the app started via docker
