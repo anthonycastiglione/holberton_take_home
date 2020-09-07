@@ -10,12 +10,15 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render 'shared/flash' %>
 
     <% if user_signed_in? %>
       <li>
       <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+      </li>
+    <% elsif staff_signed_in? %>
+      <li>
+      <%= link_to('Logout', destroy_staff_session_path, method: :delete) %>
       </li>
     <% end %>
 
