@@ -7,6 +7,6 @@ class Book < ApplicationRecord
   end
 
   def checked_out_by_current_user(current_user)
-    loans.last.user == current_user
+    loans.last.user == current_user && !available?
   end
 end
