@@ -7,6 +7,8 @@ gem 'bootstrap', '~> 4.5.2'
 gem 'devise'
 gem 'jquery-rails'
 gem 'pg'
+gem 'pry'
+gem 'pry-byebug'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'

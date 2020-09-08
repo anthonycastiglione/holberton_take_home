@@ -7,4 +7,13 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
   end
+
+  def borrow
+    book = Book.find(params[:id])
+    @loan = nil
+    book.with_lock do
+      one_week_from_today = DateTime.now.beginning_of_day + 1.week
+      @loan = Loan.create!(due_date: one_week_from_today, returned: false, book_id: book.id, user_id: current_user.id)
+    end
+  end
 end
