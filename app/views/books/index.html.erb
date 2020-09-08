@@ -1,0 +1,10 @@
+<div>
+  Available books:
+  <% @books.each do |book| %>
+    <ul>
+      <li> Title: <%= book.title %> </li>
+      <li> Genre: <%= book.genre %> </li>
+      <li> Author: <%= book.author %> </li>
+    </ul>
+  <% end %>
+</div>

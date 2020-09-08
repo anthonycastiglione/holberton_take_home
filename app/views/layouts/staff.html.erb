@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Library</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'shared/flash' %>
+
+    <% if staff_signed_in? %>
+      <%= link_to('Logout', destroy_staff_session_path, method: :delete) %>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
+</html>

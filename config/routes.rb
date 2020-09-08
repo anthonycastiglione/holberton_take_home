@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  namespace :staff do
-    get 'home/index'
-  end
-  devise_for :staffs
+  devise_for :staffs, controllers: {
+    sessions: 'staffs/sessions'
+  }
+
   devise_for :users
 
   namespace :staff do
@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   end
 
   get 'home/index'
+
+  resources :books
 
   root to: "home#index"
 end
