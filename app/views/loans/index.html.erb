@@ -1,0 +1,12 @@
+<div class="container">
+  <span>Your loans</span>
+  <% if !@loans.empty? %>
+    <% @loans.each do |loan| %>
+      <ul class="list-group">
+        <li class="list-group-item"> <%= link_to(loan.book.title, book_path(loan.book)) %> </li>
+      </ul>
+    <% end %>
+  <% else %>
+    <p>You haven't borrowed any books yet!</p>
+  <% end %>
+</div>

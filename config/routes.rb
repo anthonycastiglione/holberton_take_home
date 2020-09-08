@@ -11,12 +11,14 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
+  resources :branches
+  resources :loans
+
   resources :books do
     member do
       get 'borrow', action: :borrow, as: :borrow
     end
   end
-  resources :branches
 
   root to: "home#index"
 end
