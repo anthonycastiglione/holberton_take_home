@@ -2,8 +2,9 @@ require 'test_helper'
 
 class BookTest < ActiveSupport::TestCase
   setup do
+    @branch = Branch.create!(name: 'branch')
     @user = User.create!(email: 'test@example.com', password: '123fake')
-    @book = Book.create!(title: 'title', genre: 'genre', author: 'author')
+    @book = Book.create!(title: 'title', genre: 'genre', author: 'author', branch: @branch)
     @one_week_from_today = DateTime.now.beginning_of_day + 1.week
   end
 

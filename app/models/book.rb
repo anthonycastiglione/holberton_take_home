@@ -1,5 +1,6 @@
 class Book < ApplicationRecord
   has_many :loans
+  belongs_to :branch
 
   def available?
     return true if loans.last.nil?

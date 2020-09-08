@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_08_013534) do
+ActiveRecord::Schema.define(version: 2020_09_08_215054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,9 @@ ActiveRecord::Schema.define(version: 2020_09_08_013534) do
     t.string "author", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "branch_id"
     t.index ["author"], name: "index_books_on_author"
+    t.index ["branch_id"], name: "index_books_on_branch_id"
     t.index ["genre"], name: "index_books_on_genre"
     t.index ["title"], name: "index_books_on_title"
   end
@@ -79,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_013534) do
   end
 
   add_foreign_key "addresses", "branches"
+  add_foreign_key "books", "branches"
   add_foreign_key "loans", "books"
   add_foreign_key "loans", "users"
 end
