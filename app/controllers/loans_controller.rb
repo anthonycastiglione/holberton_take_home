@@ -1,6 +1,7 @@
 class LoansController < ApplicationController
 
   def index
-    @loans = Loan.where(user: current_user)
+    @current_loans = Loan.where(user: current_user).where(returned: false)
+    @previous_loans = Loan.where(user: current_user).where(returned: true)
   end
 end

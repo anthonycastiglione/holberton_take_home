@@ -1,12 +1,23 @@
 <div class="container">
-  <span>Your loans</span>
-  <% if !@loans.empty? %>
-    <% @loans.each do |loan| %>
-      <ul class="list-group">
+  <span>Your current loans</span>
+  <% if !@current_loans.empty? %>
+    <% @current_loans.each do |loan| %>
+      <ul class="list-group list-group-horizontal-sm">
         <li class="list-group-item"> <%= link_to(loan.book.title, book_path(loan.book)) %> </li>
+        <li class="list-group-item"> Due date: <%= loan.due_date %> </li>
       </ul>
     <% end %>
   <% else %>
     <p>You haven't borrowed any books yet!</p>
+  <% end %>
+
+  <% if !@previous_loans.empty? %>
+    <span>Your previous loans</span>
+    <% @previous_loans.each do |loan| %>
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item"> <%= link_to(loan.book.title, book_path(loan.book)) %> </li>
+        <li class="list-group-item"> Due date: <%= loan.due_date %> </li>
+      </ul>
+    <% end %>
   <% end %>
 </div>
