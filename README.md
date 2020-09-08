@@ -25,3 +25,9 @@ Navigating to http://localhost:3000/ will allow you to create/log in as a standa
 Navigating to http://localhost:3000/staffs will allow you to create/log in as a Staff user. There is currently (deliberately) nothing preventing anyone from creating a staff user for ease-of-use of this take home project. In the real world you would us course wish to prevent this, typically not allowing Admin-type users to be created via the unauthenticated UI at all and restricting it to already-created admin users or even console-only access.
 
 A seed file containing several books is included as part of set-up
+
+## Run specs
+Run the test suite:
+```
+docker-compose run web bundle exec rails test
+```
