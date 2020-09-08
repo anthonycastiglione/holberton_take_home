@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'home/index'
 
   resources :books
+  resources :branches
 
   root to: "home#index"
 end

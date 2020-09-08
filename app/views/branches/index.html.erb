@@ -1,0 +1,8 @@
+<div class="container">
+  All branches:
+  <% @branches.each do |branch| %>
+    <ul class="list-group">
+      <li class="list-group-item"> <%= branch.name %> </li>
+    </ul>
+  <% end %>
+</div>

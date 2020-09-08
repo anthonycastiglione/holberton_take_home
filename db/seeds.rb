@@ -9,3 +9,6 @@ Book.create!(title: "The Fellowship of the Ring", genre: "Fantasy", author: "J. 
 Book.create!(title: "The Two Towers", genre: "Fantasy", author: "J. R. R. Tolkien")
 Book.create!(title: "The Return of the King", genre: "Fantasy", author: "J. R. R. Tolkien")
 Book.create!(title: "The Hobbit", genre: "Fantasy", author: "J. R. R. Tolkien")
+
+Branch.create!(name: "Austin Branch")
+Branch.create!(name: "Chicago Branch")
