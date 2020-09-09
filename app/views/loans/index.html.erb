@@ -1,23 +1,55 @@
 <div class="container">
-  <span>Your current loans</span>
+  <h2>Your current loans</h2>
   <% if !@current_loans.empty? %>
-    <% @current_loans.each do |loan| %>
-      <ul class="list-group list-group-horizontal-sm">
-        <li class="list-group-item"> <%= link_to(loan.book.title, book_path(loan.book)) %> </li>
-        <li class="list-group-item"> Due date: <%= loan.due_date %> </li>
-      </ul>
-    <% end %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Checked out on</th>
+            <th scope="col">Branch</th>
+            <th scope="col">Due Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @current_loans.each_with_index do |loan, idx| %>
+            <tr>
+              <th scope="row"><%= idx + 1 %></th>
+              <td> <%= link_to(loan.book.title, book_path(loan.book)) %></td>
+              <td>Checked out on: <%= loan.created_at %> </td>
+              <td>Branch: <%= loan.branch.name %> </td>
+              <td>Due date: <%= loan.due_date %> </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
   <% else %>
     <p>You haven't borrowed any books yet!</p>
   <% end %>
 
   <% if !@previous_loans.empty? %>
-    <span>Your previous loans</span>
-    <% @previous_loans.each do |loan| %>
-      <ul class="list-group list-group-horizontal-sm">
-        <li class="list-group-item"> <%= link_to(loan.book.title, book_path(loan.book)) %> </li>
-        <li class="list-group-item"> Due date: <%= loan.due_date %> </li>
-      </ul>
-    <% end %>
+    <h2>Your previous loans</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Checked out on</th>
+            <th scope="col">Branch</th>
+            <th scope="col">Due Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @previous_loans.each_with_index do |loan, idx| %>
+            <tr>
+              <th scope="row"><%= idx + 1 %></th>
+              <td> <%= link_to(loan.book.title, book_path(loan.book)) %></td>
+              <td>Checked out on: <%= loan.created_at %> </td>
+              <td>Branch: <%= loan.branch.name %> </td>
+              <td>Due date: <%= loan.due_date %> </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
   <% end %>
 </div>

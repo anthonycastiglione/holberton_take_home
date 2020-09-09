@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :books do
     member do
       get 'borrow', action: :borrow, as: :borrow
+      get 'return', action: :return, as: :return
     end
   end
 

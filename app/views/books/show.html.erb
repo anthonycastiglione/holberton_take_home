@@ -6,7 +6,7 @@
     <% if @book.available? %>
       <li class="list-group-item"> <%= link_to("Borrow", borrow_book_path(@book)) %> </li>
     <% elsif @book.checked_out_by_current_user(current_user) %>
-      <li class="list-group-item"> Return </li>
+      <li class="list-group-item"> <%= link_to("Return", return_book_path(@book)) %> </li>
     <% else %>
       <li class="list-group-item"> Not available </li>
     <% end %>
