@@ -22,6 +22,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert @book.available? == true
     assert @loan.returned_date != nil
     assert flash[:success].include?("Success")
+    assert_redirected_to controller: "loans", action: "index"
   end
 
   test '#borrow creates a loan if the book is available' do
@@ -41,5 +42,6 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     get borrow_book_url(@book)
 
     assert flash[:error].include?("Sorry, something went wrong. Please try again.")
+    assert_redirected_to controller: "loans", action: "index"
   end
 end

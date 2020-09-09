@@ -18,7 +18,7 @@ class BooksController < ApplicationController
       flash[:error] = "Sorry, something went wrong. Please try again."
     end
 
-    redirect_to action: 'index'
+    redirect_to loans_url
   end
 
   def borrow
@@ -37,6 +37,6 @@ class BooksController < ApplicationController
       flash[:error] = "Sorry, something went wrong. Please try again."
     end
 
-    redirect_to action: 'index'
+    redirect_to loans_url
   end
 end
