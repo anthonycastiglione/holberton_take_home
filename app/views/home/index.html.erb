@@ -13,7 +13,31 @@
       </thead>
       <tbody>
         <% @loans_due_soon.each_with_index do |loan, idx| %>
-          <tr>
+        <tr class="table-warning">
+            <th scope="row"><%= idx + 1 %></th>
+            <td> <%= link_to(loan.book.title, book_path(loan.book)) %></td>
+            <td>Checked out on: <%= loan.created_at %> </td>
+            <td>Due date: <%= loan.due_date %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+
+  <% if !@overdue_loans.empty? %>
+    <h2>Overdue loans!</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Checked out on</th>
+          <th scope="col">Due Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @overdue_loans.each_with_index do |loan, idx| %>
+          <tr class="table-danger">
             <th scope="row"><%= idx + 1 %></th>
             <td> <%= link_to(loan.book.title, book_path(loan.book)) %></td>
             <td>Checked out on: <%= loan.created_at %> </td>

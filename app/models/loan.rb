@@ -12,14 +12,30 @@ class Loan < ApplicationRecord
     self.save!
   end
 
-  def self.due_soon(user)
-    outstanding = Loan.where(user: user).where(returned_date: nil)
-
-    outstanding.select do |loan|
-      loan_period = ((loan.due_date - loan.created_at) / 1.day).ceil
-      days_left = ((loan.due_date - Time.zone.now) / 1.day).ceil
-
-      loan_period - days_left >= loan_period * 0.5
+  def self.all_due_soon(user)
+    current_loans(user).select do |loan|
+      loan.due_soon?
     end
+  end
+
+  def self.all_overdue(user)
+    current_loans(user).select do |loan|
+      loan.overdue?
+    end
+  end
+
+  def returned?
+    !self.returned_date.nil?
+  end
+
+  def overdue?
+    Time.zone.now - self.due_date > 0 && !returned?
+  end
+
+  def due_soon?
+    loan_period = ((self.due_date - self.created_at) / 1.day).ceil
+    days_left = ((self.due_date - Time.zone.now) / 1.day).ceil
+
+    loan_period - days_left >= loan_period * 0.5 && !overdue?
   end
 end
