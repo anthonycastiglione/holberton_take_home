@@ -31,3 +31,8 @@ Run the test suite:
 ```
 docker-compose run web bundle exec rails test
 ```
+
+## Notes
+The 'search by genre' functionality will only return results for your selected library! For example, if you search the Austin Branch for 'Epic' you will get no results, but if you switch to the Chicago Branch and try, you will get back The Hobbit (as it is the only book with that genre.)
+
+Dates in the views are being deliberately `strftime`ed. There are SO many ways to format dates I didn't want to be dogmatic about it.

@@ -18,8 +18,8 @@
           <tr class="table-danger">
             <th scope="row"><%= idx + 1 %></th>
             <td> <%= link_to(loan.book.title, book_path(loan.book)) %></td>
-            <td> <%= loan.created_at %> </td>
-            <td> <%= loan.due_date %> </td>
+            <td> <%= loan.created_at.strftime("%d %b %y") %> </td>
+            <td> <%= loan.due_date.strftime("%d %b %y") %> </td>
             <td> <%= loan.user.email %></td>
             <td> <%= loan.user_id %></td>
           </tr>

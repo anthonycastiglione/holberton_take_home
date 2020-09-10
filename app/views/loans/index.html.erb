@@ -18,9 +18,9 @@
               <th scope="row"><%= idx + 1 %></th>
               <td> <%= loan.id %></td>
               <td> <%= link_to(loan.book.title, book_path(loan.book)) %></td>
-              <td> <%= loan.created_at %> </td>
+              <td> <%= loan.created_at.strftime("%d %b %y") %> </td>
               <td> <%= loan.branch.name %> </td>
-              <td> <%= loan.due_date %> </td>
+              <td> <%= loan.due_date.strftime("%d %b %y") %> </td>
             </tr>
           <% end %>
         </tbody>
@@ -48,9 +48,9 @@
               <th scope="row"><%= idx + 1 %></th>
               <td> <%= loan.id %></td>
               <td> <%= link_to(loan.book.title, book_path(loan.book)) %></td>
-              <td> <%= loan.created_at %> </td>
+              <td> <%= loan.created_at.strftime("%d %b %y") %> </td>
               <td> <%= loan.branch.name %> </td>
-              <td> <%= loan.due_date %> </td>
+              <td> <%= loan.due_date.strftime("%d %b %y") %> </td>
             </tr>
           <% end %>
         </tbody>
