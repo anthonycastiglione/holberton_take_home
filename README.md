@@ -16,7 +16,7 @@ docker-compose run web rake db:create
 docker-compose run web rake db:migrate
 docker-compose run web rake db:seed
 
-docker-compose run web rake db:up
+docker-compose up
 ```
 
 ## Usage
@@ -36,3 +36,5 @@ docker-compose run web bundle exec rails test
 The 'search by genre' functionality will only return results for your selected library! For example, if you search the Austin Branch for 'Epic' you will get no results, but if you switch to the Chicago Branch and try, you will get back The Hobbit (as it is the only book with that genre.)
 
 Dates in the views are being deliberately `strftime`ed. There are SO many ways to format dates I didn't want to be dogmatic about it.
+
+The db/seed file creates a standard user to log in as that has some example data populated (a newly loaned book, a 50% due book, an overdue book, a returned book) so that you don't have to manually populate anything.
