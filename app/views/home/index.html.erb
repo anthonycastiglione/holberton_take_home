@@ -1,5 +1,9 @@
 <div class="container">
-  <h1>Welcome to the library</h1>
+  <h1>Welcome to the <%= @branch&.name %> library</h1>
+  <% if @branch.nil? %>
+    <h2>Make sure to select a Branch under the Libraries tab above!</h2>
+  <% end %>
+
   <% if !@loans_due_soon.empty? %>
     <h2>Loans due soon</h2>
     <table class="table">

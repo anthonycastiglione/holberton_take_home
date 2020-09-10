@@ -2,7 +2,9 @@
   All branches:
   <% @branches.each do |branch| %>
     <ul class="list-group">
-      <li class="list-group-item"> <%= branch.name %> </li>
+      <li class="list-group-item <% if current_user.branch&.id == branch.id %> list-group-item-primary <% end %>">
+        <%= link_to(branch.name, update_branch_branch_path(branch)) %>
+      </li>
     </ul>
   <% end %>
 </div>

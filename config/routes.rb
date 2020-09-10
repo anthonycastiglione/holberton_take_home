@@ -11,7 +11,11 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  resources :branches
+  resources :branches do
+    member do
+      get 'update_branch', action: :update_branch, as: :update_branch
+    end
+  end
   resources :loans
 
   resources :books do

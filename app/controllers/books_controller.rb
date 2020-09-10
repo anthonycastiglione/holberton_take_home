@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
-
   def index
-    @books = Book.all
+    @branch = current_user.branch
+    @books = @branch&.books
   end
 
   def show

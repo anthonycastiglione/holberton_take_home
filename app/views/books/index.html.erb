@@ -1,8 +1,12 @@
 <div class="container">
-  All books:
-  <% @books.each do |book| %>
-    <ul class="list-group">
-      <li class="list-group-item"> <%= link_to(book.title, book_path(book)) %> </li>
-    </ul>
+  <% if @branch.nil? %>
+    <h2>Please select a Branch under the Libraries tab above to see available books!</h2>
+  <% else %>
+    All books at <%= @branch.name %>:
+    <% @books.each do |book| %>
+      <ul class="list-group">
+        <li class="list-group-item"> <%= link_to(book.title, book_path(book)) %> </li>
+      </ul>
+    <% end %>
   <% end %>
 </div>
