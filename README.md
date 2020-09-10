@@ -38,3 +38,5 @@ The 'search by genre' functionality will only return results for your selected l
 Dates in the views are being deliberately `strftime`ed. There are SO many ways to format dates I didn't want to be dogmatic about it.
 
 The db/seed file creates a standard user to log in as that has some example data populated (a newly loaned book, a 50% due book, an overdue book, a returned book) so that you don't have to manually populate anything.
+
+I didn't have time to get automatic geolocation working and am preferring to get the take home back to you all in a reasonable amount of time.
