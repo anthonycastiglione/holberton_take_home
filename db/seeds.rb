@@ -1,6 +1,6 @@
 branch1 = Branch.create!(name: "Austin Branch")
 branch2 = Branch.create!(name: "Chicago Branch")
-genre1 = Genre.create!(name: 'Fantasty')
+genre1 = Genre.create!(name: 'Fantasy')
 genre2 = Genre.create!(name: 'Adventure')
 
 Address.create!(street: "211 E William Cannon Dr", city: "Austin", state: "Texas", zip: 78745, branch_id: branch1.id)

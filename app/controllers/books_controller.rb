@@ -8,6 +8,11 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  def search
+    @search_term = params[:q]
+    @books = Book.joins(:genres).where("genres.name ilike ?", "%#{@search_term}%").where(branch: current_user.branch)
+  end
+
   def return
     begin
       @book = Book.find(params[:id])

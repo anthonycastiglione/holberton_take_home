@@ -1,0 +1,13 @@
+<div class="container">
+  <%= form_with(url: "/books/search", local: true, method: "get") do %>
+    <%= label_tag(:q, "Genre Search:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+  Search results for "<%= @search_term %>":
+  <% @books.each do |book| %>
+    <ul class="list-group">
+      <li class="list-group-item"> <%= link_to(book.title, book_path(book)) %> </li>
+    </ul>
+  <% end %>
+</div>

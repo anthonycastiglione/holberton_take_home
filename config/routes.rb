@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   resources :loans
 
   resources :books do
+    collection do
+      get 'search', action: :search, as: :search
+    end
     member do
       get 'borrow', action: :borrow, as: :borrow
       get 'return', action: :return, as: :return
