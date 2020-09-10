@@ -10,13 +10,12 @@
   </head>
 
   <body>
-    <%= render 'shared/flash' %>
+    <div class="container">
+      <%= render 'shared/flash' %>
 
-    <% if staff_signed_in? %>
-      <%= link_to('Logout', destroy_staff_session_path, method: :delete) %>
-    <% end %>
-
-    <%= yield %>
+      <%= render 'shared/navbar' %>
+      <%= yield %>
+    </div>
 
   </body>
 </html>
