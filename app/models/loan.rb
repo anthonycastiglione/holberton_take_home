@@ -6,19 +6,20 @@ class Loan < ApplicationRecord
 
   scope :current_loans, ->(user) { where(user: user).where(returned_date: nil) }
   scope :previous_loans, ->(user) { where(user: user).where.not(returned_date: nil)}
+  scope :all_overdue, -> { where("AGE(current_timestamp, due_date) > make_interval(0)").where(returned_date: nil) }
 
   def return
     self.returned_date = DateTime.now
     self.save!
   end
 
-  def self.all_due_soon(user)
+  def self.all_due_soon_for_user(user)
     current_loans(user).select do |loan|
       loan.due_soon?
     end
   end
 
-  def self.all_overdue(user)
+  def self.all_overdue_for_user(user)
     current_loans(user).select do |loan|
       loan.overdue?
     end

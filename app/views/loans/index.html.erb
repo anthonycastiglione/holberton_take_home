@@ -5,6 +5,7 @@
         <thead>
           <tr>
             <th scope="col">#</th>
+            <th scope="col">Loan ID</th>
             <th scope="col">Title</th>
             <th scope="col">Checked out on</th>
             <th scope="col">Branch</th>
@@ -15,10 +16,11 @@
           <% @current_loans.each_with_index do |loan, idx| %>
             <tr>
               <th scope="row"><%= idx + 1 %></th>
+              <td> <%= loan.id %></td>
               <td> <%= link_to(loan.book.title, book_path(loan.book)) %></td>
-              <td>Checked out on: <%= loan.created_at %> </td>
-              <td>Branch: <%= loan.branch.name %> </td>
-              <td>Due date: <%= loan.due_date %> </td>
+              <td> <%= loan.created_at %> </td>
+              <td> <%= loan.branch.name %> </td>
+              <td> <%= loan.due_date %> </td>
             </tr>
           <% end %>
         </tbody>
@@ -33,6 +35,7 @@
         <thead>
           <tr>
             <th scope="col">#</th>
+            <th scope="col">Loan ID</th>
             <th scope="col">Title</th>
             <th scope="col">Checked out on</th>
             <th scope="col">Branch</th>
@@ -43,10 +46,11 @@
           <% @previous_loans.each_with_index do |loan, idx| %>
             <tr>
               <th scope="row"><%= idx + 1 %></th>
+              <td> <%= loan.id %></td>
               <td> <%= link_to(loan.book.title, book_path(loan.book)) %></td>
-              <td>Checked out on: <%= loan.created_at %> </td>
-              <td>Branch: <%= loan.branch.name %> </td>
-              <td>Due date: <%= loan.due_date %> </td>
+              <td> <%= loan.created_at %> </td>
+              <td> <%= loan.branch.name %> </td>
+              <td> <%= loan.due_date %> </td>
             </tr>
           <% end %>
         </tbody>

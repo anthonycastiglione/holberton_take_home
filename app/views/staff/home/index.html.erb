@@ -1,2 +1,29 @@
-<h1>Staff::Home#index</h1>
-<p>Find me in app/views/staff/home/index.html.erb</p>
+<div class="container">
+  <h1>Welcome to the library Staff Portal</h1>
+  <h2>All overdue loans</h2>
+  <% if !@all_overdue.empty? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Checked out on</th>
+          <th scope="col">Due Date</th>
+          <th scope="col">User email</th>
+          <th scope="col">User Id</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @all_overdue.each_with_index do |loan, idx| %>
+          <tr class="table-danger">
+            <th scope="row"><%= idx + 1 %></th>
+            <td> <%= link_to(loan.book.title, book_path(loan.book)) %></td>
+            <td> <%= loan.created_at %> </td>
+            <td> <%= loan.due_date %> </td>
+            <td> <%= loan.user.email %></td>
+            <td> <%= loan.user_id %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>

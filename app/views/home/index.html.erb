@@ -16,8 +16,8 @@
         <tr class="table-warning">
             <th scope="row"><%= idx + 1 %></th>
             <td> <%= link_to(loan.book.title, book_path(loan.book)) %></td>
-            <td>Checked out on: <%= loan.created_at %> </td>
-            <td>Due date: <%= loan.due_date %> </td>
+            <td> <%= loan.created_at %> </td>
+            <td> <%= loan.due_date %> </td>
           </tr>
         <% end %>
       </tbody>
@@ -40,8 +40,8 @@
           <tr class="table-danger">
             <th scope="row"><%= idx + 1 %></th>
             <td> <%= link_to(loan.book.title, book_path(loan.book)) %></td>
-            <td>Checked out on: <%= loan.created_at %> </td>
-            <td>Due date: <%= loan.due_date %> </td>
+            <td> <%= loan.created_at %> </td>
+            <td> <%= loan.due_date %> </td>
           </tr>
         <% end %>
       </tbody>

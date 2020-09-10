@@ -3,5 +3,6 @@ class Staff::HomeController < ApplicationController
   before_action :authenticate_staff!
 
   def index
+    @all_overdue = Loan.all_overdue
   end
 end
