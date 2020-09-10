@@ -6,7 +6,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   setup do
     @branch = Branch.create!(name: 'branch')
     @user = User.create!(email: 'test@example.com', password: '123fake')
-    @book = Book.create!(title: 'title', genre: 'genre', author: 'author', branch: @branch)
+    @book = Book.create!(title: 'title', author: 'author', branch: @branch)
     sign_in @user
   end
 

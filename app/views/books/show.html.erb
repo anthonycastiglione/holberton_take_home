@@ -1,7 +1,9 @@
 <div class="container">
   <ul class="list-group">
     <li class="list-group-item"> Title: <%= @book.title %> </li>
-    <li class="list-group-item"> Genre: <%= @book.genre %> </li>
+    <% @book.genres.each do |genre| %>
+      <li class="list-group-item"> Genre: <%= genre.name %> </li>
+    <% end %>
     <li class="list-group-item"> Author: <%= @book.author %> </li>
     <% if @book.available? %>
       <li class="list-group-item"> <%= link_to("Borrow", borrow_book_path(@book)) %> </li>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_10_001902) do
+ActiveRecord::Schema.define(version: 2020_09_10_010607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,18 +28,29 @@ ActiveRecord::Schema.define(version: 2020_09_10_001902) do
 
   create_table "books", force: :cascade do |t|
     t.string "title", null: false
-    t.string "genre", null: false
     t.string "author", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "branch_id"
     t.index ["author"], name: "index_books_on_author"
     t.index ["branch_id"], name: "index_books_on_branch_id"
-    t.index ["genre"], name: "index_books_on_genre"
     t.index ["title"], name: "index_books_on_title"
   end
 
+  create_table "books_genres", id: false, force: :cascade do |t|
+    t.bigint "book_id"
+    t.bigint "genre_id"
+    t.index ["book_id"], name: "index_books_genres_on_book_id"
+    t.index ["genre_id"], name: "index_books_genres_on_genre_id"
+  end
+
   create_table "branches", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -6,13 +6,13 @@ class LoanTest < ActiveSupport::TestCase
     @user = User.create!(email: 'test@example.com', password: '123fake')
     @user2 = User.create!(email: 'test2@example.com', password: '123fake')
 
-    @book = Book.create!(title: 'title', genre: 'genre', author: 'author', branch: @branch)
-    @book2 = Book.create!(title: 'title3', genre: 'genre3', author: 'author3', branch: @branch)
-    @book3 = Book.create!(title: 'title4', genre: 'genre4', author: 'author4', branch: @branch)
-    @book4 = Book.create!(title: 'title5', genre: 'genre5', author: 'author5', branch: @branch)
-    @book5 = Book.create!(title: 'title6', genre: 'genre6', author: 'author6', branch: @branch)
-    @book6 = Book.create!(title: 'title7', genre: 'genre7', author: 'author7', branch: @branch)
-    @book7 = Book.create!(title: 'title7', genre: 'genre7', author: 'author7', branch: @branch)
+    @book = Book.create!(title: 'title', author: 'author', branch: @branch)
+    @book2 = Book.create!(title: 'title3', author: 'author3', branch: @branch)
+    @book3 = Book.create!(title: 'title4', author: 'author4', branch: @branch)
+    @book4 = Book.create!(title: 'title5', author: 'author5', branch: @branch)
+    @book5 = Book.create!(title: 'title6', author: 'author6', branch: @branch)
+    @book6 = Book.create!(title: 'title7', author: 'author7', branch: @branch)
+    @book7 = Book.create!(title: 'title7', author: 'author7', branch: @branch)
     one_week_from_today = DateTime.now.beginning_of_day + 1.week
 
     @new_loan = Loan.create!(due_date: one_week_from_today, returned_date: nil, book_id: @book.id, user_id: @user.id, branch_id: @branch.id)

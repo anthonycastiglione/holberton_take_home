@@ -2,6 +2,8 @@ class Book < ApplicationRecord
   has_many :loans
   belongs_to :branch
 
+  has_and_belongs_to_many :genres
+
   def available?
     return true if loans.last.nil?
     !loans.last&.returned_date.nil?
