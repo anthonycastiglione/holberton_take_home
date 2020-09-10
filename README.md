@@ -33,12 +33,12 @@ docker-compose run web bundle exec rails test
 ```
 
 ## Notes
-The 'search by genre' functionality will only return results for your selected library! For example, if you search the Austin Branch for 'Epic' you will get no results, but if you switch to the Chicago Branch and try, you will get back The Hobbit (as it is the only book with that genre.)
+- The 'search by genre' functionality will only return results for your selected library! For example, if you search the Austin Branch for 'Epic' you will get no results, but if you switch to the Chicago Branch and try, you will get back The Hobbit (as it is the only book with that genre.)
 
-Dates in the views are being deliberately `strftime`ed. There are SO many ways to format dates I didn't want to be dogmatic about it.
+- Dates in the views are being deliberately `strftime`ed. There are SO many ways to format dates I didn't want to be dogmatic about it.
 
-The db/seed file creates a standard user to log in as that has some example data populated (a newly loaned book, a 50% due book, an overdue book, a returned book) so that you don't have to manually populate anything.
+- The db/seed file creates a standard user to log in as that has some example data populated (a newly loaned book, a 50% due book, an overdue book, a returned book) so that you don't have to manually populate anything.
 
-Staff users cannot use the site like a normal user, they're simply special admins who can only look at overdue books for all users.
+- Staff users cannot use the site like a normal user, they're simply special admins who can only look at overdue books for all users.
 
-I didn't have time to get automatic geolocation working and am preferring to get the take home back to you all in a reasonable amount of time.
+- I didn't have time to get automatic geolocation working and am preferring to get the take home back to you all in a reasonable amount of time.
